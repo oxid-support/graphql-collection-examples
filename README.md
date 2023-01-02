@@ -42,7 +42,8 @@ Collections of GraphQL queries to demonstrate typical workflows done by GraphQL 
     "deliveryMethodId": "oxidstandard",
     "paymentId": "oxidinvoice"
   }
-```
+  ````
+
 - Click in the bottom left corner on the folder button **Collections**.
 - Click on the top left button **Import**.
 - Import the files *.agc.
