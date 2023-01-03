@@ -65,7 +65,7 @@ After saving the file, it's possible to use the variable in the requests, header
 ```
 mutation {
      example-method (
-         new-variable: "{{the-value}}",
+         property: "{{new-variable}}",
      ) {
          id
      }
