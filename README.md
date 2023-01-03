@@ -12,8 +12,8 @@ Collections of GraphQL queries to demonstrate typical workflows done by GraphQL 
   ````json
   {
     "url": "https://{your-shop-url}/graphql/",
-    "username": "{your-admin-username}",
-    "password": "{your-admin-password}",
+    "username": "{your-shop-admin-username}",
+    "password": "{your-shop-admin-password}",
     "token": "",
   
     "salutation": "MRS",
@@ -47,3 +47,27 @@ Collections of GraphQL queries to demonstrate typical workflows done by GraphQL 
 - Click in the bottom left corner on the folder button **Collections**.
 - Click on the top left button **Import**.
 - Import the files *.agc.
+
+## Usage
+A response contains sometimes values which are needed for further requests. Those values can be copied into the environment file to prevent repetive work easily.  
+An example is the authentication. For many requests an authentication Bearer Token is needed. So for each query a header needs to be created. If the token changes, the header for each request needs to be updated accordingly. By setting the environment variable, the header gets updated for each query automatically.  
+  
+To use an environment variable, add a new line to the environment file:
+```json
+"paymentId": "oxidinvoice"
+```
+becomes
+```json
+"paymentId": "oxidinvoice",
+"new-variable": "the-value"
+```
+After saving the file, it's possible to use the variable in the requests, headers or in the URL:
+```
+mutation {
+     example-method (
+         new-variable: "{{the-value}}",
+     ) {
+         id
+     }
+ }
+```
